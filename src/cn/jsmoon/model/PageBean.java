@@ -1,5 +1,10 @@
-package cn.jsmoon.util;
+package cn.jsmoon.model;
 
+/**
+ * 分页实体
+ * @author LTQ
+ *
+ */
 public class PageBean {
 
 	private int page; // 第几页

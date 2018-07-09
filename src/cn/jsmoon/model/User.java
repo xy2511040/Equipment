@@ -1,4 +1,4 @@
-package cn.jsmoon.util;
+package cn.jsmoon.model;
 
 public class User {
 	
