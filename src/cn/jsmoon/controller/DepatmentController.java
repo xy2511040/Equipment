@@ -15,6 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 import cn.jsmoon.model.Department;
 import cn.jsmoon.model.PageBean;
 import cn.jsmoon.service.DepartmentService;
+import cn.jsmoon.service.UserService;
 import cn.jsmoon.util.PageUtil;
 import cn.jsmoon.util.ResponseUtil;
 import cn.jsmoon.util.StringUtil;
@@ -26,6 +27,9 @@ public class DepatmentController {
 	
 	@Autowired
 	private DepartmentService departmentService;
+	
+	@Autowired
+	private UserService userService;
 	
 	@RequestMapping("/list")
 	public ModelAndView list(@RequestParam(value="page",required=false)String page,Department s_department,HttpServletRequest request)throws Exception{
@@ -78,8 +82,12 @@ public class DepatmentController {
 	@RequestMapping("/delete")
 	public void delete(@RequestParam(value="id")String id,HttpServletResponse response)throws Exception {
 		JSONObject jsonObject=new JSONObject();
-		departmentService.delete(Integer.parseInt(id));
-		jsonObject.put("success", true);
+		if(userService.existUserByDeptId(Integer.parseInt(id))) {
+			jsonObject.put("errorInfo", "该部门下有用户不能删除！");
+		}else {
+			departmentService.delete(Integer.parseInt(id));
+			jsonObject.put("success", true);
+		}
 		ResponseUtil.write(jsonObject, response);
 	}
 	

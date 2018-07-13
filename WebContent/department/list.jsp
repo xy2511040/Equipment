@@ -37,7 +37,7 @@
 <div>
 	<table class="table table-hover  table-bordered table-striped" style="margin-bottom: 0px;">
 		<tr>
-		  	<th>编号</th>
+		  	<th>序号</th>
 		  	<th>部门名称</th>
 		  	<th>部门备注</th>
 		  	<th>操作</th>

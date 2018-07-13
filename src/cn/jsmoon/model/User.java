@@ -14,7 +14,7 @@ public class User {
 	
 	private Integer deptId;	//部门ID
 	
-	private Integer deptName;	//部门名字
+	private String deptName;	//部门名字
 
 	public Integer getId() {
 		return id;
@@ -64,11 +64,11 @@ public class User {
 		this.deptId = deptId;
 	}
 
-	public Integer getDeptName() {
+	public String getDeptName() {
 		return deptName;
 	}
 
-	public void setDeptName(Integer deptName) {
+	public void setDeptName(String deptName) {
 		this.deptName = deptName;
 	}
 
